@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Victor's Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE everyday-professional: a freelancer's calm, credible front door
+   IDEA an analyst's bulletin: messy data in, one clear chart out
+   PICTURE scattered points flowing through a pipe into clean rising bars
+   COLOUR white ground, ink #14161a, deep teal field for the hero and contact; night #0d1416
+   TYPE Libre Caslon Text for headings, Inter for text
+   LAYOUT laptop: title top-left over a full-width teal band, picture across its lower half; phone: title, picture, buttons stacked */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0d1416);--ink:light-dark(#14161a,#e6eced);--soft:light-dark(#4a5258,#a9b4b7);--rule:light-dark(#dfe3e5,#24302f);--teal:light-dark(#0b5d63,#0a3f43);--teal2:light-dark(#0b5d63,#5fb8bd);--panel:light-dark(#f3f7f7,#121c1d);--on:#ffffff;--mint:#9fe3d9}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Libre Caslon Text",Georgia,serif;font-weight:400;line-height:1.1;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1{font-size:clamp(40px,6vw,64px)}
+h2{font-size:clamp(30px,3.6vw,42px);margin-bottom:20px}
+h3{font-size:21px;margin-bottom:8px}
+p{margin:0 0 12px;max-width:68ch}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding-block:clamp(40px,5vw,72px);padding-inline:max(5vw,16px)}
+nav{position:sticky;top:0;z-index:5;background:var(--teal);color:var(--on);padding:12px max(5vw,16px)}
+nav .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;justify-content:space-between}
+.brand{font-family:"Libre Caslon Text",Georgia,serif;font-size:20px;text-decoration:none}
+nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:4px 18px;margin:0;padding:0}
+nav ul a{text-decoration:none;font-size:15px;opacity:.88;padding:6px 0;display:inline-block}
+nav ul a:hover,nav ul a:focus-visible{opacity:1;text-decoration:underline}
+.hero{background:var(--teal);color:var(--on);padding-bottom:0}
+.hero .lead{font-size:clamp(18px,2vw,21px);max-width:40ch;margin-top:18px;opacity:.95}
+.role{font-size:17px;margin-top:10px;color:var(--mint)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:6px;font-weight:600;font-size:16px;text-decoration:none;border:2px solid currentColor;cursor:pointer;font-family:inherit}
+.btn.fill{background:var(--on);color:#0b5d63;border-color:var(--on)}
+.btn:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
+.btn.fill:hover{background:var(--mint);border-color:var(--mint)}
+.btn.line{color:var(--on);background:transparent}
+.btn.line:hover{background:rgba(255,255,255,.1)}
+.fig{position:relative;height:clamp(220px,28vw,320px);margin-top:36px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.about{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,5vw,72px)}
+.facts{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.facts li{display:grid;grid-template-columns:8.5em minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.facts b{font-weight:600;color:var(--soft);font-size:15px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:18px}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:24px}
+.card svg{width:40px;height:40px;margin-bottom:14px;display:block}
+.card p{color:var(--soft);margin:0}
+.tools{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:24px 0 0}
+.tools li{border:1px solid var(--rule);border-radius:999px;padding:6px 14px;font-size:15px}
+.alt{background:var(--panel)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px)}
+.sched{list-style:none;margin:0;padding:0}
+.sched li{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.sched .t{font-family:"Libre Caslon Text",Georgia,serif;font-size:20px;color:var(--teal2);white-space:nowrap}
+.why{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.why li{padding-left:28px;position:relative}
+.why li::before{content:"";position:absolute;left:0;top:.45em;width:12px;height:12px;border-radius:50%;background:var(--teal2)}
+.why b{display:block;font-weight:600}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:16px}
+th,td{text-align:left;padding:14px 8px;border-bottom:1px solid var(--rule)}
+th{font-weight:600;color:var(--soft);font-size:14px}
+td.p{text-align:right;white-space:nowrap;font-weight:600;font-variant-numeric:tabular-nums}
+th.p{text-align:right}
+.note{color:var(--soft);font-size:14px;margin-top:14px}
+.contact{background:var(--teal);color:var(--on)}
+.contact .two{align-items:start}
+.lines{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:12px}
+.lines span{display:block;font-size:14px;color:var(--mint)}
+form{display:grid;gap:14px;background:var(--bg);color:var(--ink);border-radius:10px;padding:24px}
+label{font-weight:600;font-size:15px;display:grid;gap:6px}
+input,textarea{font:16px Inter,system-ui,sans-serif;padding:12px;border:1px solid var(--soft);border-radius:6px;background:var(--bg);color:var(--ink);width:100%}
+input:focus-visible,textarea:focus-visible{outline:3px solid var(--teal2);outline-offset:1px}
+textarea{min-height:120px;resize:vertical}
+form .btn{background:#0b5d63;color:#fff;border-color:#0b5d63;justify-self:start}
+form .btn:hover{background:#08474c}
+#formMsg{font-size:15px;min-height:1.4em;margin:0}
+footer{padding:22px max(5vw,16px);font-size:14px;color:var(--soft);border-top:1px solid var(--rule)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+@media(max-width:760px){.about,.two{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){nav ul{gap:2px 14px}.facts li,.sched li{grid-template-columns:minmax(0,1fr);gap:2px}.fig{height:200px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.grow{animation:none!important}}
+@keyframes up{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.grow{transform-box:fill-box;transform-origin:bottom;animation:up .9s cubic-bezier(.2,.7,.2,1) both}
+</style>
+</head>
+<body>
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">Victor</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#availability">Availability</a></li>
+      <li><a href="#rates">Rates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero band" id="top">
+  <div class="wrap">
+    <h1>Victor</h1>
+    <p class="role">Data Analyst and Web Developer, South Africa</p>
+    <p class="lead">I help small businesses and startups turn messy data into clear answers, and build simple, professional websites.</p>
+    <div class="btns">
+      <a class="btn fill" href="#contact">Contact me</a>
+      <a class="btn line" href="#services">View my services</a>
+    </div>
+    <div class="fig" aria-hidden="true"><svg id="pic"></svg></div>
+  </div>
+</header>
+
+<section class="band" id="about">
+  <div class="wrap about">
+    <div>
+      <h2>About me</h2>
+      <p>I am Victor, a data analyst and junior full-stack developer based in South Africa. My background in biochemistry taught me to work carefully with data, test my assumptions and explain results clearly.</p>
+      <p>Today I combine that scientific habit with practical skills in Python, SQL and web development to help clients understand their numbers and present their work online.</p>
+    </div>
+    <ul class="facts">
+      <li><b>Field of study</b><span>Biochemistry; CompTIA Data+ certified in data analytics</span></li>
+      <li><b>Institutions</b><span>University of the Witwatersrand (Wits); Umuzi full-stack development programme</span></li>
+      <li><b>Experience</b><span>Trainee data scientist at StellieTech</span></li>
+      <li><b>Strengths</b><span>Data analysis, clear communication, problem-solving, attention to detail</span></li>
+      <li><b>Languages</b><span>English, Afrikaans, Xitsonga, isiZulu, Sesotho</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band alt" id="services">
+  <div class="wrap">
+    <h2>What I can do for you</h2>
+    <div class="grid4" id="svc"></div>
+    <ul class="tools" aria-label="Tools">
+      <li>Python</li><li>SQL</li><li>Excel</li><li>Git and GitHub</li><li>HTML</li><li>CSS</li><li>JavaScript</li>
+    </ul>
+  </div>
+</section>
+
+<section class="band" id="availability">
+  <div class="wrap two">
+    <div>
+      <h2>When I'm available</h2>
+      <ul class="sched">
+        <li><span class="t">Mon–Fri</span><span>18:00 to 21:00 (SAST)</span></li>
+        <li><span class="t">Saturday</span><span>09:00 to 14:00</span></li>
+        <li><span class="t">Capacity</span><span>About 10 to 15 hours a week, with more time during holidays</span></li>
+        <li><span class="t">Start</span><span>Available immediately; I reply to messages within 24 hours</span></li>
+      </ul>
+      <h3 style="margin-top:32px">Where I work</h3>
+      <p>Remotely, for clients anywhere in the world. On-site meetings in South Africa can be arranged.</p>
+    </div>
+    <div>
+      <h2>Why hire me</h2>
+      <ul class="why">
+        <li><b>Reliable</b>I agree on clear deadlines upfront and send progress updates at each stage.</li>
+        <li><b>Clear communicator</b>I explain technical results in plain language, so you know exactly what your data shows.</li>
+        <li><b>Detail-oriented</b>My science background taught me to check my work carefully and keep accurate records.</li>
+        <li><b>Easy to work with</b>I listen first, ask the right questions and welcome feedback.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="rates">
+  <div class="wrap">
+    <h2>Rates</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Service</th><th class="p">Price</th></tr></thead>
+        <tbody id="rateRows"></tbody>
+      </table>
+    </div>
+    <p class="note">International clients: from $20 per hour. Fixed prices include one round of revisions.</p>
+  </div>
+</section>
+
+<section class="band contact" id="contact">
+  <div class="wrap two">
+    <div>
+      <h2>Have a project in mind? Let's talk.</h2>
+      <p>Tell me what you need, and I'll reply within 24 hours with a short plan and a quote.</p>
+      <ul class="lines">
+        <li><span>Email</span><a id="mail" href="mailto:victor@example.co.za">victor@example.co.za</a></li>
+        <li><span>Mobile</span><a id="tel" href="tel:+27825550123">082 555 0123</a></li>
+        <li><span>Upwork</span><a href="https://www.upwork.com/freelancers/~015db9e11a036fb06e">View my Upwork profile</a></li>
+      </ul>
+      <p class="note" style="color:var(--mint)">Sample email and phone shown.</p>
+    </div>
+    <form id="cf" novalidate>
+      <label for="cfName">Name<input id="cfName" name="name" autocomplete="name" required></label>
+      <label for="cfEmail">Email<input id="cfEmail" name="email" type="email" autocomplete="email" required></label>
+      <label for="cfMsg">Message<textarea id="cfMsg" name="message" required></textarea></label>
+      <button class="btn" type="submit">Send message</button>
+      <p id="formMsg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Victor. Data analysis and web development.</span>
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+
+<script>
+{
+  const services = [
+    {t:'Data cleaning and analysis', d:'I tidy messy spreadsheets and datasets, then summarise what they show.', i:'<circle cx="10" cy="12" r="3"/><circle cx="22" cy="8" r="3"/><circle cx="14" cy="26" r="3"/><path d="M26 30h10M26 22h10M26 14h10"/>'},
+    {t:'Dashboards and reporting', d:'Clear charts and dashboards that track the numbers that matter to your business.', i:'<rect x="4" y="22" width="7" height="14" rx="1"/><rect x="16" y="14" width="7" height="22" rx="1"/><rect x="28" y="6" width="7" height="30" rx="1"/>'},
+    {t:'Machine learning prototypes', d:'Simple predictive models for well-defined problems, explained in plain language.', i:'<circle cx="8" cy="10" r="3"/><circle cx="8" cy="30" r="3"/><circle cx="20" cy="20" r="3"/><circle cx="32" cy="10" r="3"/><circle cx="32" cy="30" r="3"/><path d="M11 11l6 7M11 29l6-7M23 18l6-7M23 22l6 7"/>'},
+    {t:'Websites', d:'Portfolio and small business websites built with HTML, CSS and JavaScript.', i:'<rect x="4" y="6" width="32" height="28" rx="2"/><path d="M4 13h32M14 21l-4 3 4 3M26 21l4 3-4 3"/>'}
+  ];
+  document.getElementById('svc').innerHTML = services.map(s =>
+    `<article class="card"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--teal2)">${s.i}</svg><h3>${s.t}</h3><p>${s.d}</p></article>`
+  ).join('');
+
+  const rates = [
+    ['Hourly rate', 'R250 per hour'],
+    ['Data clean-up and summary report', 'R2,500'],
+    ['Interactive data dashboard', 'R4,500'],
+    ['Portfolio website', 'R3,500'],
+    ['Custom machine learning model or web app', 'From R8,000']
+  ];
+  document.getElementById('rateRows').innerHTML = rates.map(r =>
+    `<tr><td>${r[0]}</td><td class="p">${r[1]}</td></tr>`
+  ).join('');
+
+  const svg = document.getElementById('pic');
+  const draw = () => {
+    const W = svg.clientWidth, H = svg.clientHeight;
+    if (!W || !H) return;
+    let seed = 7;
+    const rnd = () => (seed = seed * 16807 % 2147483647) / 2147483647;
+    const leftW = W * 0.38, pipeX = leftW + W * 0.04, barsX = W * 0.52, base = H - 2;
+    let dots = '';
+    const n = W < 520 ? 34 : 60;
+    for (let k = 0; k < n; k++) {
+      const x = 8 + rnd() * (leftW - 16), y = 14 + rnd() * (base - 40);
+      const r = 2.5 + rnd() * 4;
+      dots += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}" fill="#ffffff" opacity="${(0.25 + rnd() * 0.5).toFixed(2)}"/>`;
+    }
+    const pipeY = base * 0.55, pipeH = Math.min(46, H * 0.2);
+    const funnel = `<path d="M${leftW - 30} ${pipeY - pipeH * 1.8} L${pipeX} ${pipeY - pipeH / 2} L${barsX - 14} ${pipeY - pipeH / 2} L${barsX - 14} ${pipeY + pipeH / 2} L${pipeX} ${pipeY + pipeH / 2} L${leftW - 30} ${pipeY + pipeH * 1.8} Z" fill="#ffffff" opacity=".1"/>`;
+    let flow = '';
+    for (let k = 0; k < 5; k++) {
+      const x = pipeX + (barsX - 14 - pipeX) * (k + 0.5) / 5;
+      flow += `<circle cx="${x.toFixed(1)}" cy="${pipeY}" r="4" fill="#9fe3d9"/>`;
+    }
+    const vals = [0.28, 0.4, 0.37, 0.52, 0.61, 0.7, 0.86];
+    const areaW = W - barsX - 6, gap = areaW / vals.length, bw = gap * 0.62;
+    let bars = '', pts = [];
+    vals.forEach((v, k) => {
+      const h = v * (base - 16), x = barsX + k * gap, y = base - h;
+      const last = k === vals.length - 1;
+      bars += `<rect class="grow" style="animation-delay:${k * 0.08}s" x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="3" fill="${last ? '#9fe3d9' : '#ffffff'}" opacity="${last ? 1 : 0.85}"/>`;
+      bars += `<rect x="${(x + bw * 0.62).toFixed(1)}" y="${y.toFixed(1)}" width="${(bw * 0.38).toFixed(1)}" height="${h.toFixed(1)}" fill="#0b5d63" opacity=".18"/>`;
+      pts.push(`${(x + bw / 2).toFixed(1)},${(y - 14).toFixed(1)}`);
+    });
+    const line = `<polyline points="${pts.join(' ')}" fill="none" stroke="#9fe3d9" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
+    const ground = `<rect x="0" y="${base}" width="${W}" height="2" fill="#ffffff" opacity=".35"/>`;
+    svg.innerHTML = funnel + dots + flow + bars + line + ground;
+  };
+  const ro = new ResizeObserver(draw);
+  ro.observe(svg);
+
+  const form = document.getElementById('cf'), msg = document.getElementById('formMsg');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const val = id => document.getElementById(id).value.trim();
+    const name = val('cfName'), email = val('cfEmail'), text = val('cfMsg');
+    if (!name || !email || !text || !/^\S+@\S+\.\S+$/.test(email)) {
+      msg.textContent = 'Please fill in your name, a valid email and a message.';
+      return;
+    }
+    const to = document.getElementById('mail').textContent;
+    const href = `mailto:${to}?subject=${encodeURIComponent('Project enquiry from ' + name)}&body=${encodeURIComponent(text + '\n\n' + name + ' (' + email + ')')}`;
+    msg.innerHTML = `Thanks, ${name.replace(/[<>&]/g, '')}. Your message is ready to send: <a href="${href}">open it in your email app</a>, or email ${to} directly.`;
+  });
+}
+</script>
+</body>
+</html>
